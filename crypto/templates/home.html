@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+
+<table class="table table-bordered table-striped table-light table-hover">
+  <thead class="thead-light">
+    <tr>
+      <th scope="col">№</th>
+      <th scope="col">Название</th>
+      <th scope="col">Цена</th>
+      <th scope="col">24ч максимум</th>
+      <th scope="col">24ч минимум</th>
+      <th scope="col">Капитализация</th>
+    </tr>
+  </thead>
+  <tbody>
+  	{% for key, value in price.DISPLAY.items %}
+	    <tr>
+	      <td>{{ forloop.counter }}</td>
+	      <td>{{ key }}</td>
+	      <td>{{ value.USD.PRICE }}</td>
+	      <td>{{ value.USD.HIGHDAY }}</td>
+	      <td>{{ value.USD.LOWDAY }}</td>
+	      <td>{{ value.USD.MKTCAP }}</td>
+	    </tr>
+	{% endfor %}
+  </tbody>
+</table>
+<br>
+
+
+<div class="conteiner">
+	<div class="row">
+		{% for x in api.Data %}
+			<div class="col-sm">
+				<div class="card" style="width: 18rem;">
+				  <img class="card-img-top" src="{{ x.imageurl }}" alt="{{ x.source }}">
+				  <div class="card-body">
+				    <h5 class="card-title">{{ x.title }}</h5>
+				    <p class="card-text"> {{ x.body }}</p>
+				    <a href="{{ x.url }}" class="btn btn-secondary">Читать дальше</a>
+				  </div>
+			  	</div>
+			  	<br/>
+			</div>
+		{% endfor %}
+	</div>
+</div>
+
+{% endblock %}

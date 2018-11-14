@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block content %}
+	{% if crypto.Response %}
+		Извините, {{ quote }} не существует. Попробуйте еще раз...
+	{% else %}
+		{% for key, value in crypto.DISPLAY.items %}
+			<div class="jumbotron jumbotron-fluid">
+	  			<div class="container">
+	    			<h1 class="display-4">{{ key }}</h1>
+	    			<p class="lead">
+		    			Цена: {{ value.USD.PRICE }}<br>
+			      		24ч максимум: {{ value.USD.HIGHDAY }}<br>
+			      		24ч минимум: {{ value.USD.LOWDAY }}<br>
+			      		Капитализация: {{ value.USD.MKTCAP }}<br>
+		      	</p>
+	  			</div>
+			</div>
+		    <br>
+		{% endfor %}
+	{% endif %}
+{% endblock %}
