@@ -1,0 +1,15 @@
+
+{% extends 'base.html' %}
+
+{% block content %}
+
+    <h2>Карта сайта</h2>
+    <ul class="list-group">
+        <li class="list-group-item"><a href="{%url 'home'%}">Главная</a></li>
+        <li class="list-group-item"><a href="{% url 'prices' %}">Цены</a></li>
+        <li class="list-group-item"><a href="{% url 'search' %}">Поиск</a></li>
+    </ul>
+
+
+
+{% endblock %}

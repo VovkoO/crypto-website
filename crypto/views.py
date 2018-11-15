@@ -22,6 +22,10 @@ def prices(request):
     return render(request, 'prices.html', {'all_prices': all_prices})
 
 
+def map_site(request):
+    return render(request, 'map.html', {})
+
+
 def search(request):
     if request.method == 'POST':
         import requests
