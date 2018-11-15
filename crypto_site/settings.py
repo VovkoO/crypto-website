@@ -27,7 +27,7 @@ SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY', '_kw8fbxw7c-7i9v@clvi#i-_zqz_j^
 DEBUG = True
 # DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['crypto-webnews.herokuapp.com']
 
 
 # Application definition
