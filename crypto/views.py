@@ -30,6 +30,10 @@ def moving(request):
     return render(request, 'moving.html', {})
 
 
+def backcall(request):
+    return render(request, 'backcall.html', {})
+
+
 def dynamic(request):
     price_request = requests.get(
         "https://min-api.cryptocompare.com/data/pricemultifull?fsyms=BTC,ETH,LTC,NEO&tsyms=USD")
