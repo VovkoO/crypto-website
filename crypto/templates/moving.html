@@ -1,0 +1,50 @@
+<html>
+<head>
+    <script language="JavaScript">
+        <!-- hide
+        var pos = 0;
+        var v1= "visible"
+        var v2= "hidden"
+        function move() {
+            if (pos <= 0) {direction= true; v1="visible";v2= "hidden";}
+            if (pos > 200) {direction= false;v1="hidden";v2="visible";}
+            if (direction) pos++
+            else pos--;
+            document.all['sloj'].style.left= 100 + pos;
+            document.all['sloj2'].style.left=200- pos;
+            document.all['sloj1'].style.left=(200- pos)*1.5;
+            document.all['sloj1'].style.visibility= v1;
+            document.all['sloj2'].style.visibility= v2;
+        }
+        // -->
+    </script>
+    <STYLE TYPE="text/css">
+        <!--
+        #sloj
+        {position: absolute; left: 0px; top: 10px;z-index: 1;}
+        #sloj1
+        {position: absolute; left: 0px; top: 50px;z-index: 2;}
+        #sloj2
+        {position: absolute; left: 0px; top: 50px;z-index: 0;}
+        //-->
+        A:visited {
+            text-decoration: none;
+            color: black;
+        }
+
+        A:link{text-decoration:none;}
+    </STYLE>
+    <title>Анимация (lab2)</title>
+</head>
+<body onLoad="setInterval('move()', 10)">
+<DIV ID='sloj'><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/46/Bitcoin.svg/1024px-Bitcoin.svg.png" width=160  height=120></DIV>
+<DIV ID='sloj1'><img src="https://myfin.by/images/cryptoCurrency/eth.png" width=60></DIV>
+<DIV ID='sloj2'><img src="http://static.atimes.com/uploads/2018/03/%D7%A8%D7%99%D7%A4%D7%9C-630x378-1522319965.png" width=60></DIV>
+<br><br><br><br><br><br><br><br>
+<a href="{% url 'home' %}">
+    <div style="width: 200px; height: 20px; border: 1px solid black; border-radius: 5px; padding: 20px;" >
+        На главную
+    </div>
+</a>
+</body>
+</html>

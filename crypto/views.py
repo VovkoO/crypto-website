@@ -26,6 +26,21 @@ def map_site(request):
     return render(request, 'map.html', {})
 
 
+def moving(request):
+    return render(request, 'moving.html', {})
+
+
+def dynamic(request):
+    price_request = requests.get(
+        "https://min-api.cryptocompare.com/data/pricemultifull?fsyms=BTC,ETH,LTC,NEO&tsyms=USD")
+    price = json.loads(price_request.content)
+    BTC_price = price['RAW']['BTC']['USD']['PRICE']
+    ETH_price = price['RAW']['ETH']['USD']['PRICE']
+    LTC_price = price['RAW']['LTC']['USD']['PRICE']
+    NEO_price = price['RAW']['NEO']['USD']['PRICE']
+    return render(request, 'dynamic.html', {'BTC': BTC_price, 'ETH': ETH_price, 'LTC': LTC_price, 'NEO': NEO_price})
+
+
 def search(request):
     if request.method == 'POST':
         import requests

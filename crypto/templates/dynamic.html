@@ -1,0 +1,65 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>lab2</title>
+    <style type="text/css">
+        A:visited {text-decoration: nonecolor: black;}
+        A:link{text-decoration:none;}
+        #link1
+        { position: absolute; left: 110px; top: 400px; visibility: hidden; font-size: 20px}
+        #link2
+        { position: absolute; left: 110px; top: 400px; visibility: hidden; font-size: 20px}
+        #link3
+        { position: absolute; left: 110px; top: 400px; visibility: hidden; font-size: 20px}
+        #link4
+        { position: absolute; left: 110px; top: 400px; visibility: hidden; font-size: 20px}
+
+        #sloj
+        { position: absolute; left: 0px; top: 480px;z-index: 1;}
+        #sloj1
+        { position: absolute; left: 0px; top: 520px;z-index: 2;}
+        #sloj2
+        { position: absolute; left: 0px; top: 520px;z-index: 0;}
+        #kisulken:hover
+        {filter: drop-shadow(20px 20px 20px black);}
+        img:hover
+        {filter: drop-shadow(20px 20px 20px black);}
+    </style>
+    <script>
+        var ie=document.all ? 1 : 0;
+        var ns = document.layers ? 1 : 0;
+        var topcss = 165;
+        if (ns) topcss = 200;
+        function showLayer(name)
+        {document.all[name].style.visibility = "visible";document.layers[name].visibility = "show";}
+        function hideLayer(name)
+        {document.all[name].style.visibility = "hidden";document.layers[name].visibility = "hide";}
+        function Sloy()
+        {document.all['addedLayer'].style.visibility = "visible";}
+    </script>
+</head>
+<body>
+<div id="link1">Цена Litecoin на данный момент: {{ LTC }} $</div>
+<div id="link2">Цена Bitcoin на данный момент: {{ BTC }} $</div >
+<div id="link3">Цена Ethereum на данный момент: {{ ETH }} $</div>
+<div id="link4">Цена NEO на данный момент: {{ NEO }} $</div>
+
+<div style="float: left; z-index: 0" >
+    <img src="http://money-partner.ru/wp-content/uploads/2018/01/valuta.jpg" height="300px" border="0" usemap="#coins">
+    <map name="coins">
+        <area  shape="rect" coords="40,85,150,200" href="#" onMouseOver="showLayer('link1');" onMouseOut="hideLayer('link1');">
+        <area  shape="rect" coords="155,85,265,200" href="#" onMouseOver="showLayer('link2');" onMouseOut="hideLayer('link2');">
+        <area  shape="rect" coords="270,85,380,200" href="#" onMouseOver="showLayer('link3');" onMouseOut="hideLayer('link3');">
+        <area  shape="rect" coords="385,85,495,200" href="#" onMouseOver="showLayer('link4');" onMouseOut="hideLayer('link4');">
+    </map>
+</div>
+<div style="float: left; text-align: center">
+    <div id="plusLayer" style="width: 200px; height: 20px; border: 1px solid black; border-radius: 5px; padding: 20px;" onClick="Sloy()" >
+        Показать еще слой!</div>
+    <a href="{% url 'moving' %}"><div style="width: 200px; height: 20px; border: 1px solid black; border-radius: 5px; padding: 20px;" >Анимация</div></a>
+    <a href="{% url 'home' %}"><div style="width: 200px; height: 20px; border: 1px solid black; border-radius: 5px; padding: 20px;" >На главную</div></a></div>
+<div id="addedLayer" style="position: absolute; top: 150px; left: 90px; visibility: hidden; z-index: 1;" ><img id ="kisulken" alt="kik" src = "https://upload.wikimedia.org/wikipedia/commons/thumb/4/46/Bitcoin.svg/1024px-Bitcoin.svg.png" width="300px" ></div>
+
+</body>
+</html>

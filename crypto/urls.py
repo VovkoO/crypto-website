@@ -5,5 +5,7 @@ urlpatterns = [
     path('', views.home, name="home"),
     path('prices/', views.prices, name="prices"),
     path('map/', views.map_site, name="map"),
+    path('dynamic/', views.dynamic, name="dynamic"),
+    path('moving/', views.moving, name="moving"),
     path('search/', views.search, name="search")
 ]
