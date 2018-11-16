@@ -1,0 +1,86 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <!doctype html>
+    <html>
+    <head>
+
+        <meta charset="UTF-8">
+        <title>Поиск (lab4)</title>
+        <script>
+            UrlYandex="https://yandex.ru/search/?clid=2186621&text="; //1
+            UrlGoogle="https://www.google.com/search?q=";           //2
+            UrlMail_ru="https://go.mail.ru/search?q=";              //3
+            UrlRambler="https://nova.rambler.ru/search?utm_source=head&utm_campaign=self_promo&utm_medium=button&utm_content=search&_openstat=UmFtYmxlcl9NYWluOzs7&query=";                            //4
+            UrlAport="https://www.aport.ru/search/?q=";           //5
+            UrlYahoo="https://search.yahoo.com/search;_ylt=A0PDsB275J9baKQAmXJXNyoA;_ylc=X1MDMjc2NjY3OQRfcgMyBGZyA3lmcC10BGdwcmlkA1p3RXNYYnlmUWVHRW93Rnh1VWtYNkEEbl9yc2x0AzAEbl9zdWdnAzMEb3JpZ2luA3NlYXJjaC55YWhvby5jb20EcG9zAzAEcHFzdHIDBHBxc3RybAMwBHFzdHJsAzEwMwRxdWVyeQMlRDElODIlRDAlQjUlRDAlQjAlRDElODIlRDElODAlMjAlRDAlQkQlRDAlQjAlMjAlRDElOEUlRDAlQjMlRDAlQkUtJUQwJUI3JUQwJUIwJUQwJUJGJUQwJUIwJUQwJUI0JUQwJUI1BHRfc3RtcAMxNTM3MjA1NDQ3?p=";                 //6
+            UrlAol="https://search.aol.com/aol/search?s_chn=prt_bon&q=";   //7
+            UrlBing="https://www.bing.com/search?q=";           //8
+            UrlDuckDuckGo="https://www.bing.com/search?q=";       //9
+            UrlDogpile="http://results.dogpile.com/search/web?q=";     //10
+            UrlIRR="https://irr.ru/searchads/search/keywords=";       //11
+            UrlWiki="https://ru.wikipedia.org/wiki/";       //12
+            UrlSearch="https://www.search.com/web?q=";          //13
+            UrlPrice="https://price.ru/search/?query=";         //14
+            UrlStud="https://studopedia.ru/search.php?searchid=2280335&text=";//15
+            UrlGde="https://gde.ru/all?Filter[district_id]=&Filter[search_string]=";      //16
+
+            function FindText(Url)
+            {
+                var FullUrl=Url+document.find.searchtext.value;
+                if (document.find.newwin.checked)
+                {
+                    var FindWin=window.open(FullUrl);
+                }
+                else
+                {
+                    location.href = FullUrl;
+                }
+            }
+        </script>
+    </head>
+    <body>
+    <form name="find">
+        <h3>Найти: </h3>
+        <input type="text" name="searchtext" class="form-control" placeholder="Введите текст для поиска" size="70"><br><br>
+        <input type="checkbox" class="form-check-label" name="newwin">Открыть в новом окне<br>
+        <br>С помощью поисковой системы:<br><br>
+        <input type="button" class="btn btn-secondary" value="Yandex"
+               onClick="FindText(UrlYandex)">
+        <input  type="button" class="btn btn-secondary" value="Google"
+                onClick="FindText(UrlGoogle)">
+        <input type="button"  class="btn btn-secondary" value="Mail"
+               onClick="FindText(UrlMail_ru)">
+        <input type="button"  class="btn btn-secondary" value="Rambler"
+               onClick="FindText(UrlRambler)">
+        <input type="button"  class="btn btn-secondary" value="Aport"
+               onClick="FindText(UrlAport)">
+        <input type="button"  class="btn btn-secondary" value="Yahoo"
+               onClick="FindText(UrlYahoo)">
+        <input type="button"  class="btn btn-secondary" value="Aol"
+               onClick="FindText(UrlAol)">
+        <input type="button"  class="btn btn-secondary" value="Bing"
+               onClick="FindText(UrlBing)">
+        <input type="button"  class="btn btn-secondary" value="DuckDuckGo"
+               onClick="FindText(UrlDuckDuckGo)">
+        <input type="button"  class="btn btn-secondary" value="Dogpile"
+               onClick="FindText(UrlDogpile)">
+        <input type="button"  class="btn btn-secondary" value="Из рук в руки"
+               onClick="FindText(UrlIRR)">
+        <input type="button"  class="btn btn-secondary" value="Википедия"
+               onClick="FindText(UrlWiki)">
+        <input type="button"  class="btn btn-secondary" value="Search"
+               onClick="FindText(UrlSearch)"> <br><br>
+        <input type="button"  class="btn btn-secondary" value="Price"
+               onClick="FindText(UrlPrice)">
+        <input type="button"  class="btn btn-secondary" value="Студопедия"
+               onClick="FindText(UrlStud)">
+        <input type="button"  class="btn btn-secondary" value="Gde"
+               onClick="FindText(UrlGde)">
+        <br><br>
+        <a class="btn btn-primary" href="{% url 'home' %}" role="button">На главную</a>
+
+    </form></body>
+    </html>
+
+{% endblock %}

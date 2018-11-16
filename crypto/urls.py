@@ -8,5 +8,6 @@ urlpatterns = [
     path('dynamic/', views.dynamic, name="dynamic"),
     path('moving/', views.moving, name="moving"),
     path('backcall/', views.backcall, name="backcall"),
+    path('bigsearch/', views.bigsearch, name="bigsearch"),
     path('search/', views.search, name="search")
 ]

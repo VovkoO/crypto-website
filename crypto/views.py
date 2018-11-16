@@ -26,6 +26,10 @@ def map_site(request):
     return render(request, 'map.html', {})
 
 
+def bigsearch(request):
+    return render(request, 'bigsearch.html', {})
+
+
 def moving(request):
     return render(request, 'moving.html', {})
 

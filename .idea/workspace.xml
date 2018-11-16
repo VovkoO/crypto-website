@@ -2,9 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9036f923-296c-4b58-8a86-a6aa27089e7f" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/crypto/templates/backcall.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/crypto/templates/bigsearch.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/crypto/templates/home.html" beforeDir="false" afterPath="$PROJECT_DIR$/crypto/templates/home.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/crypto/templates/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/crypto/templates/base.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/crypto/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/crypto/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/crypto/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/crypto/views.py" afterDir="false" />
     </list>
@@ -34,7 +34,7 @@
         <counts>
           <entry key="Procfile" value="1" />
           <entry key="gitignore" value="2" />
-          <entry key="html" value="18" />
+          <entry key="html" value="19" />
           <entry key="py" value="13" />
           <entry key="txt" value="2" />
         </counts>
@@ -42,7 +42,7 @@
       <usages-collector id="statistics.file.types.open">
         <counts>
           <entry key="Git file" value="2" />
-          <entry key="HTML" value="18" />
+          <entry key="HTML" value="19" />
           <entry key="PLAIN_TEXT" value="3" />
           <entry key="Python" value="13" />
         </counts>
@@ -50,16 +50,16 @@
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="Procfile" value="16" />
-          <entry key="html" value="738" />
-          <entry key="py" value="502" />
+          <entry key="html" value="853" />
+          <entry key="py" value="557" />
           <entry key="txt" value="13" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="HTML" value="738" />
+          <entry key="HTML" value="853" />
           <entry key="PLAIN_TEXT" value="29" />
-          <entry key="Python" value="502" />
+          <entry key="Python" value="557" />
         </counts>
       </usages-collector>
     </session>
@@ -97,8 +97,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/crypto/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="442">
-              <caret line="34" lean-forward="true" selection-start-line="34" selection-end-line="34" />
+            <state relative-caret-position="357">
+              <caret line="29" column="37" selection-start-line="29" selection-start-column="37" selection-end-line="29" selection-end-column="37" />
               <folding>
                 <element signature="e#0#36#0" expanded="true" />
               </folding>
@@ -106,11 +106,20 @@
           </provider>
         </entry>
       </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/crypto/templates/bigsearch.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="258">
+              <caret line="70" column="43" selection-start-line="70" selection-start-column="43" selection-end-line="70" selection-end-column="43" />
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/crypto/templates/backcall.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="289">
-              <caret line="17" column="12" selection-start-line="17" selection-start-column="12" selection-end-line="17" selection-end-column="12" />
+            <state relative-caret-position="357">
+              <caret line="21" column="14" lean-forward="true" selection-start-line="21" selection-start-column="14" selection-end-line="21" selection-end-column="14" />
             </state>
           </provider>
         </entry>
@@ -156,13 +165,13 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/crypto/templates/base.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="306">
-              <caret line="26" column="57" lean-forward="true" selection-start-line="26" selection-start-column="42" selection-end-line="26" selection-end-column="57" />
+            <state>
+              <caret lean-forward="true" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/crypto/templates/home.html">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="85">
@@ -174,8 +183,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/crypto/urls.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="153">
-              <caret line="9" column="52" selection-start-line="9" selection-start-column="52" selection-end-line="9" selection-end-column="52" />
+            <state relative-caret-position="170">
+              <caret line="10" column="55" selection-start-line="10" selection-start-column="55" selection-end-line="10" selection-end-column="55" />
               <folding>
                 <element signature="e#0#28#0" expanded="true" />
               </folding>
@@ -207,14 +216,15 @@
         <option value="$PROJECT_DIR$/requirements.txt" />
         <option value="$PROJECT_DIR$/crypto_site/map.html" />
         <option value="$PROJECT_DIR$/crypto_site/settings.py" />
-        <option value="$PROJECT_DIR$/crypto/templates/base.html" />
         <option value="$PROJECT_DIR$/crypto/templates/map.html" />
         <option value="$PROJECT_DIR$/crypto/templates/dynamic.html" />
         <option value="$PROJECT_DIR$/crypto/templates/moving.html" />
-        <option value="$PROJECT_DIR$/crypto/urls.py" />
-        <option value="$PROJECT_DIR$/crypto/views.py" />
         <option value="$PROJECT_DIR$/crypto/templates/home.html" />
         <option value="$PROJECT_DIR$/crypto/templates/backcall.html" />
+        <option value="$PROJECT_DIR$/crypto/urls.py" />
+        <option value="$PROJECT_DIR$/crypto/views.py" />
+        <option value="$PROJECT_DIR$/crypto/templates/base.html" />
+        <option value="$PROJECT_DIR$/crypto/templates/bigsearch.html" />
       </list>
     </option>
   </component>
@@ -224,7 +234,7 @@
     <detection-done>true</detection-done>
     <sorting>DEFINITION_ORDER</sorting>
   </component>
-  <component name="ProjectFrameBounds" extendedState="7">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="-7" />
     <option name="width" value="974" />
     <option name="height" value="1047" />
@@ -339,7 +349,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1056" extended-state="7" />
+    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.09808102" />
@@ -496,10 +506,34 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/crypto/templates/home.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="5" column="4" lean-forward="true" selection-start-line="5" selection-start-column="4" selection-end-line="6" selection-end-column="55" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/crypto/templates/backcall.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="357">
+          <caret line="21" column="14" lean-forward="true" selection-start-line="21" selection-start-column="14" selection-end-line="21" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/crypto/urls.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="10" column="55" selection-start-line="10" selection-start-column="55" selection-end-line="10" selection-end-column="55" />
+          <folding>
+            <element signature="e#0#28#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/crypto/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="442">
-          <caret line="34" lean-forward="true" selection-start-line="34" selection-end-line="34" />
+        <state relative-caret-position="357">
+          <caret line="29" column="37" selection-start-line="29" selection-start-column="37" selection-end-line="29" selection-end-column="37" />
           <folding>
             <element signature="e#0#36#0" expanded="true" />
           </folding>
@@ -508,32 +542,15 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/crypto/templates/base.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="26" column="57" lean-forward="true" selection-start-line="26" selection-start-column="42" selection-end-line="26" selection-end-column="57" />
+        <state>
+          <caret lean-forward="true" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/crypto/urls.py">
+    <entry file="file://$PROJECT_DIR$/crypto/templates/bigsearch.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="9" column="52" selection-start-line="9" selection-start-column="52" selection-end-line="9" selection-end-column="52" />
-          <folding>
-            <element signature="e#0#28#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/crypto/templates/backcall.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="17" column="12" selection-start-line="17" selection-start-column="12" selection-end-line="17" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/crypto/templates/home.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="5" column="4" lean-forward="true" selection-start-line="5" selection-start-column="4" selection-end-line="6" selection-end-column="55" />
+        <state relative-caret-position="258">
+          <caret line="70" column="43" selection-start-line="70" selection-start-column="43" selection-end-line="70" selection-end-column="43" />
         </state>
       </provider>
     </entry>
