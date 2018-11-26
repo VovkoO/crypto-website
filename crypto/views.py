@@ -2,6 +2,7 @@ from django.http import HttpResponse
 from django.shortcuts import render
 import json
 import requests
+from .models import Orders
 
 
 def home(request):
@@ -26,8 +27,32 @@ def map_site(request):
     return render(request, 'map.html', {})
 
 
+def orders(requset):
+    all_orders = Orders.objects.all()
+    if requset.method == 'POST':
+        order = all_orders.get(pk=requset.POST['order_id'])
+        order.delete()
+    return render(requset, 'orders.html', {'all_orders': all_orders})
+
+
 def bigsearch(request):
     return render(request, 'bigsearch.html', {})
+
+
+def edit_order(request):
+    all_orders = Orders.objects.all()
+
+    if request.method == 'POST' and 'change_order' in request.POST:
+        order = all_orders.get(pk=request.POST['order_id'])
+        order.name = request.POST.get('order_name')
+        order.save()
+        return render(request, 'edit_order.html', {'order': order})
+
+    elif request.method == 'POST':
+        order = all_orders.get(pk=request.POST['order_id'])
+        return render(request, 'edit_order.html', {'order': order})
+
+    return render(request, 'edit_order.html', {})
 
 
 def moving(request):

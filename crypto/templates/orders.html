@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+    <table class="table">
+        <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Имя</th>
+            <th scope="col">Дата</th>
+            <th scope="col">Цена</th>
+            <th scope="col">Количество</th>
+            <th scope="col"></th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for order in all_orders %}
+            <tr>
+                <th scope="row">{{ forloop.counter }}</th>
+                <td>{{ order.name }}</td>
+                <td>{{ order.date }}</td>
+                <td>{{ order.price }}</td>
+                <td>{{ order.quantity }}</td>
+                <td>
+                    <div class="btn-group" role="group" aria-label="Basic example">
+                        <form name="edit_order" method="post" action="{% url 'edit_order' %}">{% csrf_token %}
+                            <input type="hidden" name="order_id" value="{{ order.pk }}">
+                            <button type="submit" class="btn btn-secondary"">Редактировать</button>
+                        </form>
+                        <form name="delete" method="post" action="{% url 'orders' %}">{% csrf_token %}
+                            <input type="hidden" name="order_id" value="{{ order.pk }}">
+                            <button type="submit" class="btn btn-secondary">Удалить</button>
+                        </form>
+                    </div>
+                </td>
+            </tr>
+        {% endfor %}
+
+        </tbody>
+    </table>
+
+{% endblock %}

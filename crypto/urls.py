@@ -9,5 +9,7 @@ urlpatterns = [
     path('moving/', views.moving, name="moving"),
     path('backcall/', views.backcall, name="backcall"),
     path('bigsearch/', views.bigsearch, name="bigsearch"),
+    path('orders/', views.orders, name="orders"),
+    path('edit_order/', views.edit_order, name="edit_order"),
     path('search/', views.search, name="search")
 ]
