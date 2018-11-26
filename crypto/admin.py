@@ -1,8 +1,4 @@
-from django.urls import path
-from . import views
+from django.contrib import admin
+from .models import Orders
 
-urlpatterns = [
-    path('', views.home, name="home"),
-    path('prices/', views.prices, name="prices"),
-    path('search/', views.search, name="search")
-]
+admin.site.register(Orders)
