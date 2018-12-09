@@ -45,6 +45,11 @@ def edit_order(request):
     if request.method == 'POST' and 'change_order' in request.POST:
         order = all_orders.get(pk=request.POST['order_id'])
         order.name = request.POST.get('order_name')
+        if order.date != "":
+            order.date = request.POST.get('date')
+        order.price = request.POST.get('price')
+        order.quantity = request.POST.get('quantity')
+
         order.save()
         return render(request, 'edit_order.html', {'order': order})
 

@@ -5,19 +5,19 @@
         <input type="hidden" name="order_id" value="{{ order.pk }}">
         <div class="form-group">
             <label for="formGroupExampleInput">Имя</label>
-            <input type="text" class="form-control" name="order_name" id="name_order" value="{{ order.name }}">
+            <input type="text" class="form-control" name="order_name" id="name_order" value="{{ order.name }}" pattern="^[a-zA-ZА-Яа-яЁё\s]+$">
         </div>
         <div class="form-group">
             <label for="formGroupExampleInput">Дата</label>
-            <input type="text" class="form-control" id="date" value="{{ order.date }}">
+            <input type="date" class="form-control" name="date" id="date" value="{{ order.date }}">
         </div>
         <div class="form-group">
             <label for="formGroupExampleInput">Цена</label>
-            <input type="text" class="form-control" id="price" value="{{ order.price }}">
+            <input type="text" class="form-control" name="price" id="price" value="{{ order.price }}" pattern="^[ 0-9]+$" required>
         </div>
         <div class="form-group">
             <label for="formGroupExampleInput">Количество</label>
-            <input type="text" class="form-control" id="quantity" value="{{ order.quantity }}">
+            <input type="text" class="form-control" name="quantity" id="quantity" value="{{ order.quantity }}"  pattern="^[0-9]+$" required>
         </div>
         <button type="submit" name="change_order" class="btn btn-primary">Submit</button>
     </form>
