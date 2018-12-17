@@ -35,12 +35,38 @@
             <li class="nav-item">
                 <a class="nav-link" href="{% url 'bigsearch' %}">Поиск</a>
             </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{% url 'search_order' %}">Поиск заказов</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{% url 'backcall' %}">Обратная связь</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{% url 'send_email' %}">Отправить email</a>
+            </li>
+
+
+
+
         </ul>
         <form class="form-inline my-2 my-lg-0" method="POST" action="{% url 'search' %}">
             {% csrf_token %}
             <input class="form-control mr-sm-2" type="search" placeholder="BTC" aria-label="Search" name = "quote">
             <button class="btn btn-outline-secondary my-2 my-sm-0" type="submit">Поиск</button>
         </form>
+
+        {% if user %}
+            <li class="nav-item">
+                <a class="nav-link" href="{% url 'logout' %}">Выйти ({{ user }})</a>
+            </li>
+        {% else %}
+            <li class="nav-item">
+                <a class="nav-link" href="{% url 'login' %}">Войти</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{% url 'register' %}">Регистрация</a>
+            </li>
+        {% endif %}
     </div>
 </nav>
 <br/>

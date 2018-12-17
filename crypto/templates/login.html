@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <form name="login" method="post" action="{% url 'login' %}">{% csrf_token %}
+        <div class="form-group">
+            <label for="name">Имя</label>
+            <input type="text" class="form-control" id="name" name="name" placeholder="Введите имя">
+        </div>
+        <div class="form-group">
+            <label for="exampleInputPassword1">Пароль</label>
+            <input type="password" class="form-control" id="exampleInputPassword1" name="password" placeholder="Пароль">
+        </div>
+        {% if error %}
+            <a>{{ error }}</a><br>
+        {% endif %}
+        <button type="submit" class="btn btn-primary">Войти</button>
+    </form>
+{% endblock %}

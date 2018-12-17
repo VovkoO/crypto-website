@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <form name="send_email" method="post" action="{% url 'send_email' %}">{% csrf_token %}
+        <div class="form-group">
+            <label for="exampleFormControlInput1">Ваш Email</label>
+            <input type="email" class="form-control" name="email" id="exampleFormControlInput1" placeholder="name@example.com">
+        </div>
+        <div class="form-group">
+            <label for="exampleFormControlTextarea1">Сообщение</label>
+            <textarea class="form-control" name="message" id="exampleFormControlTextarea1" rows="3"></textarea>
+        </div>
+        {% if result %}
+            <td>{{ result }}</td>
+        {% endif %}
+        <br>
+        <button type="submit" class="btn btn-primary">Отправить</button>
+    </form>
+{% endblock %}

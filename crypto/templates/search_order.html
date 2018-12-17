@@ -1,8 +1,17 @@
 {% extends 'base.html' %}
 
 {% block content %}
+    <form method="POST" action="{% url 'search_order' %}">{% csrf_token %}
+        <input class="form-control" name='name' type="text" placeholder="Введите имя"><br>
+        <button type="submit" class="btn btn-secondary">Найти</button>
+    </form>
+    <br>
+    {% if error %}
+        <td>{{ error }}</td>
+    {% endif %}
+    {% if orders %}
 
-    <table class="table">
+        <table class="table">
         <thead>
         <tr>
             <th scope="col">#</th>
@@ -14,7 +23,7 @@
         </tr>
         </thead>
         <tbody>
-        {% for order in all_orders %}
+        {% for order in orders %}
             <tr>
                 <th scope="row">{{ forloop.counter }}</th>
                 <td>{{ order.name }}</td>
@@ -37,8 +46,5 @@
                 </td>
             </tr>
         {% endfor %}
-
-        </tbody>
-    </table>
-
+    {% endif %}
 {% endblock %}
