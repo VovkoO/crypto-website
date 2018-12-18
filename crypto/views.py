@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect, render_to_response
 import json
 import requests
-from .models import Orders
+from .models import Orders, Topic, Message
 from django.contrib import auth
 from django.core.mail import send_mail
 
@@ -48,7 +48,7 @@ def edit_order(request):
     all_orders = Orders.objects.all()
 
     if request.method == 'POST' and 'change_order' in request.POST:
-        order = all_orders.get(pk=request.POST['order_id'])
+        order = all_orders.get(pk=request.POST.get('order_id'))
         order.name = request.POST.get('order_name')
         if order.date != "":
             order.date = request.POST.get('date')
@@ -148,3 +148,23 @@ def send_email(request):
         send_mail('crypto_news', message, 'cryptonews659@gmail.com', [email], fail_silently=False)
         return render(request, 'send_email.html', {'user': auth.get_user(request).get_username(), 'result': 'Сообщение отправлено'})
     return render(request, 'send_email.html', {'user': auth.get_user(request).get_username()})
+
+
+def forum(request):
+    username = auth.get_user(request).get_username()
+    user_permission = auth.get_user(request).is_staff
+    topics = Topic.objects.all()
+    if request.POST:
+        Topic.objects.get(pk=request.POST.get('topic_id')).delete()
+        return render(request, 'forum.html', {'user': username, 'permission': user_permission, 'topics': topics})
+    return render(request, 'forum.html', {'user': username, 'permission': user_permission, 'topics': topics})
+
+
+def change_topic_name(request):
+    if 'topic_name' in request.POST:
+        topic = Topic.objects.get(pk=int(request.POST.get('topic_id')))
+        topic.name_theme = request.POST.get('topic_name')
+        topic.save()
+        return redirect('forum')
+    topic_id = request.POST.get('topic_id')
+    return render(request, 'change_topic_name.html', {'user': auth.get_user(request).get_username(), 'topic_id': topic_id})

@@ -16,5 +16,7 @@ urlpatterns = [
     path('register/', views.register, name="register"),
     path('search_order/', views.search_order, name="search_order"),
     path('send_email/', views.send_email, name="send_email"),
+    path('forum/', views.forum, name="forum"),
+    path('change_topic_name/', views.change_topic_name, name="change_topic_name"),
     path('search/', views.search, name="search")
 ]

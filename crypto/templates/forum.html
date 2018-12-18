@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <table class="table table-bordered">
+        <thead>
+        <tr>
+            <th scope="col">Тема</th>
+            <th scope="col">Автор</th>
+            <th scope="col">Последние сообщение</th>
+            {% if permission %}
+                <th scope="col">Изменить</th>
+            {% endif %}
+        </tr>
+        </thead>
+        <tbody>
+        {% for topic in topics %}
+            <tr>
+                <td>{{ topic.name_theme }}</td>
+                <td>{{ topic.name_creator }}</td>
+                <td>{{ topic.name_last_answer }}<br>
+                    {{ topic.date_last_answer }}</td>
+
+                {% if permission %}
+                    <td>
+                        <div class="btn-group" role="group" aria-label="Basic example">
+                            <form name="edit_order" method="post" action="{% url 'change_topic_name' %}">{% csrf_token %}
+                                <input type="hidden" name="topic_id" value="{{ topic.pk }}">
+                                <button type="submit" class="btn btn-secondary">Редактировать</button>
+                            </form>
+                            <form name="delete" method="post" action="{% url 'forum' %}">{% csrf_token %}
+                                <input type="hidden" name="topic_id" value="{{ topic.pk }}">
+                                <button type="submit" class="btn btn-secondary">Удалить</button>
+                            </form>
+                        </div>
+                    </td>
+                {% endif %}
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}

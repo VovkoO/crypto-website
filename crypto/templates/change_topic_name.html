@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <form name="change_order" method="post" action="{% url 'change_topic_name' %}">{% csrf_token %}
+        <input type="hidden" name="order_id" value="{{ order.pk }}">
+        <div class="form-group">
+            <label for="formGroupExampleInput">Тема</label>
+            <input type="text" class="form-control" name="topic_name" id="topic_order" value="{{ order.name }}" pattern="^[a-zA-ZА-Яа-яЁё\s]+$">
+            <input type="hidden" name="topic_id" id="topic_id" value="{{ topic_id }}">
+        </div>
+        <button type="submit" name="change_order" class="btn btn-primary">Изменить</button>
+    </form>
+{% endblock %}
