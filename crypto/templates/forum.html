@@ -14,8 +14,10 @@
         </thead>
         <tbody>
         {% for topic in topics %}
-            <tr>
-                <td>{{ topic.name_theme }}</td>
+                <form name="topic" id="topic" method="post" action="{% url 'topic' %}">{% csrf_token %}
+                    <input type="hidden" name="topic_id" value="{{ topic.pk }}">
+                    <td><button type="submit" class="btn btn-link">{{ topic.name_theme }}</button></td>
+                </form>
                 <td>{{ topic.name_creator }}</td>
                 <td>{{ topic.name_last_answer }}<br>
                     {{ topic.date_last_answer }}</td>
@@ -38,4 +40,10 @@
         {% endfor %}
         </tbody>
     </table>
+    <br>
+    {% if user %}
+        <form name="add_topic" id="add_topic" method="post" action="{% url 'add_topic' %}">{% csrf_token %}
+             <button type="submit" class="btn btn-secondary">Добавить тему</button>
+        </form>
+    {% endif %}
 {% endblock %}

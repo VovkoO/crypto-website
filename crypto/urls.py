@@ -18,5 +18,8 @@ urlpatterns = [
     path('send_email/', views.send_email, name="send_email"),
     path('forum/', views.forum, name="forum"),
     path('change_topic_name/', views.change_topic_name, name="change_topic_name"),
+    path('topic/', views.topic, name="topic"),
+    path('add_topic/', views.add_topic, name="add_topic"),
+    path('add_message/', views.add_message, name="add_message"),
     path('search/', views.search, name="search")
 ]

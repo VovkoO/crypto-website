@@ -4,6 +4,7 @@ import requests
 from .models import Orders, Topic, Message
 from django.contrib import auth
 from django.core.mail import send_mail
+import datetime
 
 from django.contrib.auth.forms import UserCreationForm
 
@@ -155,8 +156,21 @@ def forum(request):
     user_permission = auth.get_user(request).is_staff
     topics = Topic.objects.all()
     if request.POST:
-        Topic.objects.get(pk=request.POST.get('topic_id')).delete()
-        return render(request, 'forum.html', {'user': username, 'permission': user_permission, 'topics': topics})
+        if 'message' in request.POST:
+            new_message = Message.objects.create()
+            new_message.date_answer = datetime.datetime.now()
+            new_message.name_man = username
+            new_message.text_mes = request.POST.get('message')
+            new_topic = Topic.objects.create()
+            new_topic.name_theme = request.POST.get('topic')
+            new_topic.name_creator = username
+            new_topic.date_last_answer = new_message.date_answer
+            new_topic.name_last_answer = new_message.name_man
+            new_topic.save()
+            new_message.id_topic = new_topic
+            new_message.save()
+        else:
+            Topic.objects.get(pk=request.POST.get('topic_id')).delete()
     return render(request, 'forum.html', {'user': username, 'permission': user_permission, 'topics': topics})
 
 
@@ -168,3 +182,39 @@ def change_topic_name(request):
         return redirect('forum')
     topic_id = request.POST.get('topic_id')
     return render(request, 'change_topic_name.html', {'user': auth.get_user(request).get_username(), 'topic_id': topic_id})
+
+
+def topic(request):
+    username = auth.get_user(request).get_username()
+    user_permission = auth.get_user(request).is_staff
+    if request.POST:
+        if 'message_id' in request.POST:
+            Message.objects.get(pk=request.POST.get('message_id')).delete()
+        elif 'message' in request.POST:
+            topic = Topic.objects.get(pk=request.POST.get('topic_id'))
+            new_message = Message.objects.create()
+            new_message.id_topic = topic
+            new_message.name_man = username
+            new_message.date_answer = datetime.datetime.now()
+            new_message.text_mes = request.POST.get('message')
+            new_message.save()
+            topic.name_last_answer = username
+            topic.date_last_answer = new_message.date_answer
+            topic.save()
+        topic_id = request.POST.get("topic_id")
+        messages = Message.objects.filter(id_topic=Topic.objects.get(pk=topic_id)).order_by('-pk')
+        return render(request, 'topic.html', {'user': username, 'messages': messages, 'topic_id': topic_id, 'user_permission': user_permission})
+    return redirect('forum')
+
+
+def add_topic(request):
+    username = auth.get_user(request).get_username()
+    return render(request, 'add_topic.html', {'user': username})
+
+
+def add_message(request):
+    username = auth.get_user(request).get_username()
+    if request.POST:
+        topic_id = request.POST.get('topic_id')
+        return render(request, 'add_message.html', {'user': username, 'topic_id': topic_id})
+    return redirect('forum')
